@@ -56,9 +56,35 @@ function tab_city() {
   })
 }
 
+let tglBtn = document.getElementById("toggle")
+    tglBtn.addEventListener("change",()=>{
+        if(tglBtn.checked) {
+            document.body.classList.add('dark-mode');
+            localStorage.setItem("theme","dark");
+        }
+         else {
+            document.body.classList.remove('dark-mode');
+            localStorage.setItem("theme","light");
+        }
+    });
+
+const savedTheme = localStorage.getItem("theme");
+if(savedTheme === "dark") {
+   document.body.classList.add('dark-mode');
+   toggle.checked = true;
+}
+else {
+  document.body.classList.remove('dark-mode');
+  toggle.checked = false;
+}
+
+
+
 document.getElementsByTagName("button")[0].addEventListener("click",()=>{
   let city = document.getElementById("srch").value;
   getWeather(city);
 })
 getWeather("Dehradun");
 tab_city();
+
+    

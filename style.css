@@ -4,10 +4,79 @@
     font-family: Arial, sans-serif;
 }
 
+:root .dark-mode {
+            --bg-main : #1e1e1e;;
+            --bg-primary : white;
+        }
+
+body .dark-mode{
+             background-color: var(--bg-main);
+             color : var(--bg-primary);
+        }
+
+        .card .temperature .box .dark-mode {
+            background-color: var(--bg-primary);
+             color : var(--bg-main);
+        }
+
+:root {
+            --bg-main : white;
+            --bg-primary : black;
+        }
+
+body {
+    background-color: var(--bg-main);
+    color : var(--bg-primary);
+    }
+
+    .toggle-btn {
+            display: flex;
+            align-items: center;
+            height: 20px;
+        }
+
+        .switch {
+            position: relative;
+            display: inline-block;
+            background-color: grey;
+            height: 1rem;
+            width: 3rem;
+            border-radius: 4rem;
+            transition: all .3s ease;
+        }
+
+        .slider {
+            position: absolute;
+            top : 0.01rem;
+            left : 0.01rem;
+            background-color: white;
+            height: 1.4rem;
+            width: 1.4rem;
+            border-radius: 50%;
+            transition: all 0.3s linear;
+        }
+
+        #toggle {
+            display: none;
+        }
+
+        #toggle:checked + .switch .slider {
+            transform : translateX(2rem);
+        }
+
+        #toggle:checked + .switch {
+            background-color: #007BFF;
+        }
+
+body, .card, table, .navbar, input, button {
+    transition: all 0.3s ease;
+}
+
 .navbar{
     display : flex;
     justify-content: space-between;
-    background: #b3b3b3;
+    background: var(--bg-main);
+    color : var(--bg-primary);
     padding: 6px;
 }
 
@@ -49,7 +118,7 @@ ul li a{
    
     font-weight: bold;
     text-decoration: none;
-    color : black;
+    color : var(--bg-primary);
 }
 
 li a:hover{
@@ -57,8 +126,13 @@ li a:hover{
      text-decoration: underline;
 }
 
+.dark-mode #clear {
+    color: #1e1e1e;
+}
+
 h2,h3{
     text-align: center;
+    color : var(--bg-main);
     margin: 5px 0px;
     margin: 11px 0px;
 }
@@ -78,6 +152,7 @@ height: 227px;
 }
 
 .temperature svg{
+    color: var(--bg-main);
     position: absolute;
   left: 65%;
   top: 5%;
@@ -95,15 +170,21 @@ height: 227px;
 }
 
 .humidity svg{
+    color: var(--bg-main);
     position: absolute;
   left: 68%;
   top: 5%;
 }
 
 .wind svg{
+    color: var(--bg-main);
     position: absolute;
   left: 63%;
   top: 5%;
+}
+
+.weather-box h2 {
+    color : var(--bg-primary);
 }
 
 .weather-box button{
@@ -112,13 +193,18 @@ height: 227px;
   position: absolute;
 bottom: 8px;
   left: 7px;
-  background: white;
+  background: var(--bg-main);
+  color : var(--bg-primary);
   border: none;
 }
 
 .box{
-background: white;
+background: var(--bg-main);
   margin: 0px 10px;
+}
+
+.box h2 {
+    color : var(--bg-primary);
 }
 
 .box p{
@@ -143,7 +229,7 @@ button:hover{
 
 .tabular h2 {
     margin-bottom: 20px;
-    color: #333;
+    color: var(--bg-primary);
 }
 
 .weather-table {
@@ -169,8 +255,12 @@ button:hover{
 }
 
 .weather-table tr:hover {
-    background-color: #e6f2ff;
+    background-color: rgb(238, 234, 234);
     transition: 0.3s;
+}
+
+.dark-mode tr:hover{
+    background-color: rgba(255,255,255,0.08);
 }
 
 @media (max-width:976px) {
